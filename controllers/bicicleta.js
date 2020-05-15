@@ -36,3 +36,4 @@ exports.bicicleta_delete_post = function(req,res){
 
     res.redirect('/bicicletas');
 }
+

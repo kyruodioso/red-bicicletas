@@ -7,3 +7,14 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 var marker = L.marker([51.5, -0.09]).addTo(map);
 var marker = L.marker([55.5, -0.09]).addTo(map);
 var marker = L.marker([21.5, -0.09]).addTo(map);
+
+$.ajax({
+    dataType: "json",
+    url: "api/bicicletas",
+    success: function (result) {
+        console.log(result);
+        result.bicicletas.forEach(function(bici) {
+            L.marker(bici.ubicacion, {title: bici.id}).addTo(map)
+        });
+    }
+});
